@@ -18,7 +18,10 @@
     <ClCompile Include="glad.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Main.cpp">
+    <ClCompile Include="src\Main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GLFW\GLFW.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -35,8 +38,19 @@
     <ClInclude Include="libraries\include\KHR\khrplatform.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\GLFW\GLFW.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Headers.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Library Include="libraries\lib\glfw3.lib" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include=".gitignore" />
+    <None Include="LICENSE" />
+    <None Include="README.md" />
   </ItemGroup>
 </Project>

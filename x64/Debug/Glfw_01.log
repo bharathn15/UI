@@ -1,2 +1,5 @@
 ﻿  Main.cpp
+D:\Projects\2022\GLFW\Glfw_01\src\Main.cpp(1,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+D:\Projects\2022\GLFW\Glfw_01\src\Main.cpp(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+D:\Projects\2022\GLFW\Glfw_01\src\GLFW\GLFW.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
   Glfw_01.vcxproj -> D:\Projects\2022\GLFW\Glfw_01\x64\Debug\Glfw_01.exe
