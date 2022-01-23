@@ -67,17 +67,16 @@ int GLFW::Glfw::CreateWindow() {
 		/* Render here */
 		glClear(GL_COLOR_BUFFER_BIT);
 
-
-		
-		
-		
-		
 		ImGui_ImplOpenGL3_NewFrame();
 		ImGui_ImplGlfw_NewFrame();
 		ImGui::NewFrame();
 			
 		ImGui::Begin("ImGui Window");
 		ImGui::Text("Hello there");
+
+		static bool check = true;
+		
+		ImGui::Checkbox("Correct", &check);
 		ImGui::End();
 		
 		ImGui::Render();
@@ -87,7 +86,6 @@ int GLFW::Glfw::CreateWindow() {
 		glfwSwapBuffers(window);
 		glfwPollEvents();
 
-		
 	}
 
 	ImGui_ImplOpenGL3_Shutdown();
