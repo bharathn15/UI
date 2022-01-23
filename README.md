@@ -1,2 +1,4 @@
 # UI
-GLFW-OpenGL 
+GLFW-OpenGL based UI
+
+Editor - Visual Studio 2022

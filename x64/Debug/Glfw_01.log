@@ -1,5 +1,7 @@
 ﻿  GLFW.cpp
 D:\Projects\2022\GLFW\Glfw_01\src\GLFW\GLFW.cpp(1,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
 D:\Projects\2022\GLFW\Glfw_01\src\GLFW\GLFW.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-D:\Projects\2022\GLFW\Glfw_01\src\GLFW\GLFW.cpp(72): warning C4715: 'GLFW::Glfw::CreateWindow': not all control paths return a value
+D:\Projects\2022\GLFW\Glfw_01\src\Headers.h(6,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+D:\Projects\2022\GLFW\Glfw_01\src\Headers.h(7,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+D:\Projects\2022\GLFW\Glfw_01\src\GLFW\GLFW.cpp(101): warning C4715: 'GLFW::Glfw::CreateWindow': not all control paths return a value
   Glfw_01.vcxproj -> D:\Projects\2022\GLFW\Glfw_01\x64\Debug\Glfw_01.exe
