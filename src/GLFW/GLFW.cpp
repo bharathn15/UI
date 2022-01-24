@@ -35,11 +35,8 @@ int GLFW::Glfw::CreateWindow() {
 	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
 	window = glfwCreateWindow(getHeight(), getHeight(), "Window 01", NULL, NULL);
-	//window_02 = glfwCreateWindow(getHeight(), getHeight(), "UI 02 Window", NULL, NULL);
-	
-	glfwMakeContextCurrent(window);
-	//glfwMakeContextCurrent(window_02);
 
+	glfwMakeContextCurrent(window);
 	gladLoadGL();
 
 	glViewport(0, 0, 700, 700);
@@ -71,15 +68,19 @@ int GLFW::Glfw::CreateWindow() {
 		ImGui_ImplGlfw_NewFrame();
 		ImGui::NewFrame();
 			
-		ImGui::Begin("ImGui Window");
-		ImGui::Text("Hello there");
-
-		static bool check = true;
-		
-		ImGui::Checkbox("Correct", &check);
-		ImGui::End();
-		
+		ImGui::Begin("Hierarchy");
+		if (ImGui::Button("Play")) {
+			bool isPlaying = true;
+			if (isPlaying) {
+				cout << "Play Button is working." << endl;
+			}
+		};
+		if (ImGui::Button("Stop")) {
+			cout<< "Stop button is working" << endl;
+		}
+		ImGui::End();		
 		ImGui::Render();
+
 		ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
 
 		/* Swap front and back buffers */
