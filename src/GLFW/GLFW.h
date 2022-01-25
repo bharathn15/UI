@@ -1,6 +1,8 @@
 #pragma once
 #include "../Headers.h";
 
+// bool isPlaying;
+// bool hasStopped;
 
 namespace GLFW {
 	class Glfw {

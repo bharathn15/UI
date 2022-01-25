@@ -68,7 +68,7 @@ int GLFW::Glfw::CreateWindow() {
 		ImGui_ImplGlfw_NewFrame();
 		ImGui::NewFrame();
 			
-		ImGui::Begin("Hierarchy");
+		ImGui::Begin("Main");
 		if (ImGui::Button("Play")) {
 			bool isPlaying = true;
 			if (isPlaying) {
@@ -76,8 +76,26 @@ int GLFW::Glfw::CreateWindow() {
 			}
 		};
 		if (ImGui::Button("Stop")) {
-			cout<< "Stop button is working" << endl;
+			bool hasStopped = true;
+			if (hasStopped) {
+				cout << "Stop button is working" << endl;
+			}
 		}
+
+		/* Slider */
+		static float rotation = 0.0;
+		float SliderValue = ImGui::SliderFloat("Slider", &rotation, 0, 100);
+		//LOG(rotation);
+
+		static float color[4] = {1.0f, 1.0f, 1.0f, 1.0f};
+
+		ImGui::ColorEdit3("color", color);
+
+		ImGui::ShowDemoWindow();
+		ImGuiIO &m = ImGui::GetIO();
+		
+		
+
 		ImGui::End();		
 		ImGui::Render();
 

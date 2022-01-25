@@ -103,5 +103,6 @@
     <None Include=".gitignore" />
     <None Include="LICENSE" />
     <None Include="README.md" />
+    <None Include="imgui.ini" />
   </ItemGroup>
 </Project>
