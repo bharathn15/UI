@@ -4,6 +4,7 @@
 // bool isPlaying;
 // bool hasStopped;
 
+
 namespace GLFW {
 	class Glfw {
 	private:
