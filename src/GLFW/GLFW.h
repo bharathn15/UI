@@ -14,12 +14,22 @@ namespace GLFW {
 		/* GLFW Window */
 		GLFWwindow* window;
 		GLFWwindow* window_02;
+	
+		
+
 	public:
 		Glfw();
 		int getWidth();
 		void setWidth(int Height);
 		int getHeight();
 		void setHeight(int Width);
+
+		/* Shader Compilation */
+		unsigned int CompileShader(unsigned	int type, const string& source);
+
+		/* Shader Creation */
+		unsigned int CreateShader(const string& vertexShader, const string& fragmentShader);
+
 		virtual int CreateWindow();
 		void DeleteWindow();
 		~Glfw();

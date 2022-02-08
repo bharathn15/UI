@@ -20,10 +20,37 @@ int GLFW::Glfw::getHeight() {
 }
 
 void GLFW::Glfw::setHeight(int Height) {
-
 	width = Height;
 }
 
+
+unsigned int GLFW::Glfw::CompileShader(unsigned	int type, const string& source) {
+	unsigned int id = glCreateShader(GL_VERTEX_SHADER);
+	const char* src = source.c_str();
+	glShaderSource(id, 1, &src, nullptr);
+
+	glCompileShader(id);
+
+	int result;
+	glGetShaderiv(id, GL_COMPILE_STATUS, &result);
+	return id;
+}
+
+unsigned int GLFW::Glfw::CreateShader(const string& vertexShader, const string& fragmentShader) {
+	unsigned int program = glCreateProgram();
+	unsigned int vs = CompileShader(GL_VERTEX_SHADER, vertexShader);
+	unsigned int fs = CompileShader(GL_FRAGMENT_SHADER, fragmentShader);
+
+	glAttachShader(program, vs);
+	glAttachShader(program, fs);
+	glLinkProgram(program);
+	glValidateProgram(program);
+
+	glDeleteShader(vs);
+	glDeleteShader(fs);
+
+	return program;
+}
 
 int GLFW::Glfw::CreateWindow() {
 	getHeight();
@@ -42,11 +69,13 @@ int GLFW::Glfw::CreateWindow() {
 	gladLoadGL();
 
 	glViewport(0, 0, 700, 700);
-	glClearColor(0.07f, 0.13f, 0.17f, 1.0f);
+
+	// Set gray background
+	// glClearColor(.5f, .5f, .5f, 0);
+	glClearColor(0.0f, 0.0f, 0.0f, 0);
+	
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-
-	
 	glfwSwapBuffers(window);
 
 	if (window == NULL) {
@@ -54,15 +83,27 @@ int GLFW::Glfw::CreateWindow() {
 		glfwTerminate();
 		return -1;
 	}
+	
+	float Positions[6] = {
+		-0.5f, -0.5f, 
+		0.0f, 0.5f,   
+		0.5f, -0.5f  
+	};
 
+	unsigned int buffer;
+	glGenBuffers(1, &buffer);
+	glBindBuffer(GL_ARRAY_BUFFER, buffer);
+	glBufferData(GL_ARRAY_BUFFER, 6 * sizeof(float), Positions, GL_STATIC_DRAW);
+	
+	glEnableVertexAttribArray(0);
+	glVertexAttribPointer(0, 2, GL_FLOAT ,GL_FALSE, sizeof(float) * 2, 0);
+
+	glBindBuffer(GL_ARRAY_BUFFER, 0);
 
 	while (!glfwWindowShouldClose(window)) {
-
 		glClear(GL_COLOR_BUFFER_BIT);
-		glDrawArrays(GL_TRIANGLES, 0, 6);
 
-		
-
+		glDrawArrays(GL_TRIANGLES, 0, 3);
 		glfwSwapBuffers(window);
 		glfwPollEvents();
 	
