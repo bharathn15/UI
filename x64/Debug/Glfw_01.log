@@ -1,22 +1,8 @@
-﻿  glad.c
-  imgui.cpp
-  imgui_demo.cpp
-  imgui_draw.cpp
-  imgui_impl_glfw.cpp
-  imgui_impl_opengl3.cpp
-  imgui_tables.cpp
-  imgui_widgets.cpp
-  GLFW.cpp
+﻿  GLFW.cpp
 D:\Projects\2022\GLFW\Glfw_01\src\GLFW\GLFW.cpp(1,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
 D:\Projects\2022\GLFW\Glfw_01\src\GLFW\GLFW.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-D:\Projects\2022\GLFW\Glfw_01\src\Headers.h(6,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
 D:\Projects\2022\GLFW\Glfw_01\src\Headers.h(7,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-  Main.cpp
-D:\Projects\2022\GLFW\Glfw_01\src\Main.cpp(1,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-D:\Projects\2022\GLFW\Glfw_01\src\Headers.h(6,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-D:\Projects\2022\GLFW\Glfw_01\src\Headers.h(7,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-D:\Projects\2022\GLFW\Glfw_01\src\Main.cpp(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-D:\Projects\2022\GLFW\Glfw_01\src\GLFW\GLFW.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-  Generating Code...
-D:\Projects\2022\GLFW\Glfw_01\src\GLFW\GLFW.cpp(115): warning C4715: 'GLFW::Glfw::CreateWindow': not all control paths return a value
+D:\Projects\2022\GLFW\Glfw_01\src\Headers.h(8,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+D:\Projects\2022\GLFW\Glfw_01\src\GLFW\GLFW.cpp(117,10): warning C4244: 'initializing': conversion from 'unsigned int' to 'float', possible loss of data
+D:\Projects\2022\GLFW\Glfw_01\src\GLFW\GLFW.cpp(156): warning C4715: 'GLFW::Glfw::CreateWindow': not all control paths return a value
   Glfw_01.vcxproj -> D:\Projects\2022\GLFW\Glfw_01\x64\Debug\Glfw_01.exe
