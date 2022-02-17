@@ -24,6 +24,11 @@ namespace GLFW {
 		int getHeight();
 		void setHeight(int Width);
 
+		/* KeyBoard Input */
+		virtual void Input_Key();
+
+		void framebuffer_size_callback(GLFWwindow* window, int width, int height);
+
 		/* Shader Compilation */
 		unsigned int CompileShader(unsigned	int type, const string& source);
 
