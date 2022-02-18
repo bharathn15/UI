@@ -27,13 +27,11 @@ namespace GLFW {
 		/* KeyBoard Input */
 		virtual void Input_Key();
 
-		void framebuffer_size_callback(GLFWwindow* window, int width, int height);
+		/* Vertex Shader */
+		virtual unsigned int Vertex_Shader();
 
-		/* Shader Compilation */
-		unsigned int CompileShader(unsigned	int type, const string& source);
-
-		/* Shader Creation */
-		unsigned int CreateShader(const string& vertexShader, const string& fragmentShader);
+		/* Fragment Shader */
+		virtual unsigned int Fragment_Shader();
 
 		virtual int CreateWindow();
 		void DeleteWindow();
