@@ -3,4 +3,12 @@ D:\Projects\2022\GLFW\Glfw_01\src\GLFW\GLFW.cpp(1,10): warning C4067: unexpected
 D:\Projects\2022\GLFW\Glfw_01\src\GLFW\GLFW.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
 D:\Projects\2022\GLFW\Glfw_01\src\Headers.h(7,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
 D:\Projects\2022\GLFW\Glfw_01\src\Headers.h(8,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+D:\Projects\2022\GLFW\Glfw_01\src\GLFW\GLFW.cpp(201,25): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+  Main.cpp
+D:\Projects\2022\GLFW\Glfw_01\src\Main.cpp(1,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+D:\Projects\2022\GLFW\Glfw_01\src\Headers.h(7,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+D:\Projects\2022\GLFW\Glfw_01\src\Headers.h(8,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+D:\Projects\2022\GLFW\Glfw_01\src\Main.cpp(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+D:\Projects\2022\GLFW\Glfw_01\src\GLFW\GLFW.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  Generating Code...
   Glfw_01.vcxproj -> D:\Projects\2022\GLFW\Glfw_01\x64\Debug\Glfw_01.exe

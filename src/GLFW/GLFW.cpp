@@ -31,7 +31,7 @@ const char* fragmentShaderSource = "#version 330 core\n"
 "out vec4 FragColor;\n"
 "void main()\n"
 "{\n"
-"   FragColor = vec4(0.5f, 0.0f, 0.0f, 1.0f);\n"
+"   FragColor = vec4(1.0f, 0.0f, 0.0f, 1.0f);\n"
 "}\n\0";
 
 
@@ -57,9 +57,13 @@ unsigned int GLFW::Glfw::Vertex_Shader() {
 unsigned int GLFW::Glfw::Fragment_Shader() {
     int success;
     char infoLog[512];
+
+    // Generating a Fragment Shader ID
     unsigned int fragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
+    
     glShaderSource(fragmentShader, 1, &fragmentShaderSource, NULL);
     glCompileShader(fragmentShader);
+
     // check for shader compile errors
     glGetShaderiv(fragmentShader, GL_COMPILE_STATUS, &success);
     if (!success)
@@ -78,6 +82,12 @@ int GLFW::Glfw::CreateWindow() {
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+
+    int major, minor, revision;
+    glfwGetVersion(&minor, &major, &revision);
+    LOG("Minor Version - "+ to_string(minor));
+    LOG("Major Version - " + to_string(major));
+    LOG("Revision Version - " + to_string(revision));
 
 #ifdef __APPLE__
     glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
@@ -140,14 +150,16 @@ int GLFW::Glfw::CreateWindow() {
          0.0f,  0.5f, 0.0f  // top   
     };
 
+    auto Float_Size = sizeof(float);
+
     unsigned int VBO, VAO;
     glGenVertexArrays(1, &VAO);
     glGenBuffers(1, &VBO);
     // bind the Vertex Array Object first, then bind and set vertex buffer(s), and then configure vertex attributes(s).
     glBindVertexArray(VAO);
-
     glBindBuffer(GL_ARRAY_BUFFER, VBO);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+
+    glBufferData(GL_ARRAY_BUFFER, sizeof(vertices) * Float_Size, vertices, GL_STATIC_DRAW);
 
     glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
     glEnableVertexAttribArray(0);
@@ -159,7 +171,6 @@ int GLFW::Glfw::CreateWindow() {
     // VAOs requires a call to glBindVertexArray anyways so we generally don't unbind VAOs (nor VBOs) when it's not directly necessary.
     glBindVertexArray(0);
 
-
     // uncomment this call to draw in wireframe polygons.
     //glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 
@@ -167,34 +178,48 @@ int GLFW::Glfw::CreateWindow() {
     // -----------
     while (!glfwWindowShouldClose(window))
     {
-        // input
-        // -----
-        //processInput(window);
-        
+
+        is_KeyPressed = true;
+
         // render
-        // ------
         glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT);
 
         // draw our first triangle
         glUseProgram(shaderProgram);
+
+        // KeyBoard Input
+        KeyboardInput(window);
+
+        // Mouse Input
+        // mouseButtonCallback(window);
+
+        // Camera Position 
+        Camera_Position();
+
+        // update the uniform color
+        float timeValue = glfwGetTime(); // Time in seconds
+        float greenValue = sin(timeValue) / 2.0f + 0.5f;
+        int vertexColorLocation = glGetUniformLocation(shaderProgram, "ourColor");
+        glUniform4f(vertexColorLocation, 0.0f, greenValue, 0.0f, 1.0f);
+
         glBindVertexArray(VAO); // seeing as we only have a single VAO there's no need to bind it every time, but we'll do so to keep things a bit more organized
         glDrawArrays(GL_TRIANGLES, 0, 3);
         // glBindVertexArray(0); // no need to unbind it every time 
-
         // glfw: swap buffers and poll IO events (keys pressed/released, mouse moved etc.)
         // -------------------------------------------------------------------------------
-
+        glfwSwapInterval(1);
         glfwSwapBuffers(window);
         glfwPollEvents();
     }
+
+
 
     // optional: de-allocate all resources once they've outlived their purpose:
     // ------------------------------------------------------------------------
     glDeleteVertexArrays(1, &VAO);
     glDeleteBuffers(1, &VBO);
     glDeleteProgram(shaderProgram);
-
     // glfw: terminate, clearing all previously allocated GLFW resources.
     // ------------------------------------------------------------------
     glfwTerminate();
@@ -209,10 +234,57 @@ void framebuffer_size_callback(GLFWwindow* window, int width, int height)
     glViewport(0, 0, width, height);
 }
 
+
+void GLFW::Glfw::KeyboardInput(GLFWwindow* window) {
+    
+    if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS) {
+        LOG("W Key is Pressed.");
+        //float time = glfwGetTime();
+        //LOG(time);
+    }
+    
+    if (glfwGetKey(window, GLFW_KEY_E) == GLFW_PRESS) {
+        LOG("E Key is Pressed.");        
+    }
+
+    if (glfwGetKey(window, GLFW_MOUSE_BUTTON_LEFT) == GLFW_PRESS) {
+        LOG("Left Mouse Button is clicked.");
+    }
+
+    double xpos, ypos;
+    //getting cursor position
+    glfwGetCursorPos(window, &xpos, &ypos);
+
+    if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS) {
+        glfwSetWindowShouldClose(window, true);
+    }
+}
+
+void GLFW::Glfw::Camera_Position() {
+
+      
+}
+
+/*
+void GLFW::Glfw::mouseButtonCallback(GLFWwindow* window) {
+    int button = NULL;
+    int action = NULL;
+    int modS = NULL;
+    if (button == GLFW_MOUSE_BUTTON_RIGHT && action == GLFW_PRESS)
+        std::cout << "Right button pressed" << std::endl;
+    if (button == GLFW_MOUSE_BUTTON_RIGHT && action == GLFW_RELEASE)
+        std::cout << "Right button released" << std::endl;
+}
+*/
+
+
+
+
 void GLFW::Glfw::Input_Key() {
 	if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS) {
 		glfwSetWindowShouldClose(window, true);
-	}
+	    
+    }
 }
 
 
