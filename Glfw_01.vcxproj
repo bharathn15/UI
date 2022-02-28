@@ -92,12 +92,13 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>imgui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Linkage\glm;$(SolutionDir)Linkage\glew\include\GL;imgui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>glfw3.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>glew32.lib;glfw3.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)Linkage\glew\lib\Release\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -122,12 +123,13 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>imgui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Linkage\glm;$(SolutionDir)Linkage\glew\include\GL;imgui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>glfw3.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>glew32.lib;glfw3.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)Linkage\glew\lib\Release\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -155,6 +157,7 @@
     <ClCompile Include="imgui\imgui_impl_opengl3.cpp" />
     <ClCompile Include="imgui\imgui_tables.cpp" />
     <ClCompile Include="imgui\imgui_widgets.cpp" />
+    <ClCompile Include="src\GLFW\Camera.cpp" />
     <ClCompile Include="src\GLFW\GLFW.cpp" />
     <ClCompile Include="src\Main.cpp" />
   </ItemGroup>
@@ -172,17 +175,65 @@
     <ClInclude Include="libraries\include\GLFW\glfw3.h" />
     <ClInclude Include="libraries\include\GLFW\glfw3native.h" />
     <ClInclude Include="libraries\include\KHR\khrplatform.h" />
+    <ClInclude Include="Linkage\glew\include\eglew.h" />
+    <ClInclude Include="Linkage\glew\include\glew.h" />
+    <ClInclude Include="Linkage\glew\include\glxew.h" />
+    <ClInclude Include="Linkage\glew\include\GL\eglew.h" />
+    <ClInclude Include="Linkage\glew\include\GL\glew.h" />
+    <ClInclude Include="Linkage\glew\include\GL\glxew.h" />
+    <ClInclude Include="Linkage\glew\include\GL\wglew.h" />
+    <ClInclude Include="Linkage\glew\include\wglew.h" />
+    <ClInclude Include="src\GLFW\Camera.h" />
     <ClInclude Include="src\GLFW\GLFW.h" />
+    <ClInclude Include="src\GLFW\stb_image.h" />
     <ClInclude Include="src\Headers.h" />
   </ItemGroup>
   <ItemGroup>
     <Library Include="libraries\lib\glfw3.lib" />
+    <Library Include="Linkage\glew\lib\glew32.lib" />
+    <Library Include="Linkage\glew\lib\glew32s.lib" />
+    <Library Include="Linkage\glew\lib\Release\Win32\glew32.lib" />
+    <Library Include="Linkage\glew\lib\Release\Win32\glew32s.lib" />
+    <Library Include="Linkage\glew\lib\Release\x64\glew32.lib" />
+    <Library Include="Linkage\glew\lib\Release\x64\glew32s.lib" />
   </ItemGroup>
   <ItemGroup>
     <None Include=".gitignore" />
     <None Include="imgui.ini" />
     <None Include="LICENSE" />
+    <None Include="Linkage\glew\bin\Release\Win32\glew32.dll" />
+    <None Include="Linkage\glew\bin\Release\Win32\glewinfo.exe" />
+    <None Include="Linkage\glew\bin\Release\Win32\visualinfo.exe" />
+    <None Include="Linkage\glew\bin\Release\x64\glew32.dll" />
+    <None Include="Linkage\glew\bin\Release\x64\glewinfo.exe" />
+    <None Include="Linkage\glew\bin\Release\x64\visualinfo.exe" />
+    <None Include="Linkage\glew\doc\advanced.html" />
+    <None Include="Linkage\glew\doc\basic.html" />
+    <None Include="Linkage\glew\doc\build.html" />
+    <None Include="Linkage\glew\doc\credits.html" />
+    <None Include="Linkage\glew\doc\glew.css" />
+    <None Include="Linkage\glew\doc\glew.html" />
+    <None Include="Linkage\glew\doc\glxew.html" />
+    <None Include="Linkage\glew\doc\index.html" />
+    <None Include="Linkage\glew\doc\install.html" />
+    <None Include="Linkage\glew\doc\log.html" />
+    <None Include="Linkage\glew\doc\wglew.html" />
     <None Include="README.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Linkage\glew\doc\github.png" />
+    <Image Include="Linkage\glew\doc\glew.png" />
+    <Image Include="Linkage\glew\doc\new.png" />
+    <Image Include="Linkage\glew\doc\ogl_sm.jpg" />
+    <Image Include="Linkage\glew\doc\travis.png" />
+    <Image Include="src\GLFW\container.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Linkage\glew\doc\glew.txt" />
+    <Text Include="Linkage\glew\doc\gpl.txt" />
+    <Text Include="Linkage\glew\doc\khronos.txt" />
+    <Text Include="Linkage\glew\doc\mesa.txt" />
+    <Text Include="Linkage\glew\LICENSE.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

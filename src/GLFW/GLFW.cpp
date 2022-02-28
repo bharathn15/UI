@@ -22,23 +22,29 @@ void GLFW::Glfw::setHeight(int Height) {
 
 const char* vertexShaderSource = "#version 330 core\n"
 "layout (location = 0) in vec3 aPos;\n"
+"out vec4 Vec_Color;\n"
 "void main()\n"
 "{\n"
-"   gl_Position = vec4(aPos.x, aPos.y, aPos.z, 1.0);\n"
+"   gl_Position = vec4(aPos, 1.0);\n"
+"   Vec_Color = vec4(0.5f, 0.0f, 0.0f, 1.0f);\n"
 "}\0";
 
 const char* fragmentShaderSource = "#version 330 core\n"
 "out vec4 FragColor;\n"
+"uniform vec4  Vec_Color;\n"
 "void main()\n"
 "{\n"
-"   FragColor = vec4(1.0f, 0.0f, 0.0f, 1.0f);\n"
+"   FragColor = Vec_Color;\n"
 "}\n\0";
 
 
 unsigned int GLFW::Glfw::Vertex_Shader() {
     int success;
     char infoLog[512];
-    unsigned int vertexShader = glCreateShader(GL_VERTEX_SHADER);
+
+    
+    unsigned int vertexShader = glCreateShader(GL_VERTEX_SHADER); // Vertex Shader Id
+    LOG("Vertex Shader ID - "+to_string(vertexShader));
     glShaderSource(vertexShader, 1, &vertexShaderSource, NULL);
     glCompileShader(vertexShader);
     // check for shader compile errors
@@ -60,7 +66,7 @@ unsigned int GLFW::Glfw::Fragment_Shader() {
 
     // Generating a Fragment Shader ID
     unsigned int fragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
-    
+    LOG("Fragment Shader ID - " + to_string(fragmentShader));
     glShaderSource(fragmentShader, 1, &fragmentShaderSource, NULL);
     glCompileShader(fragmentShader);
 
@@ -144,11 +150,13 @@ int GLFW::Glfw::CreateWindow() {
 
     // set up vertex data (and buffer(s)) and configure vertex attributes
     // ------------------------------------------------------------------
+    
     float vertices[] = {
         -0.5f, -0.5f, 0.0f, // left  
          0.5f, -0.5f, 0.0f, // right 
          0.0f,  0.5f, 0.0f  // top   
     };
+    
 
     auto Float_Size = sizeof(float);
 
@@ -176,6 +184,18 @@ int GLFW::Glfw::CreateWindow() {
 
     // render loop
     // -----------
+
+    
+
+
+    float texCoords[] = {
+    0.0f, 0.0f,  // lower-left corner  
+    1.0f, 0.0f,  // lower-right corner
+    0.5f, 1.0f   // top-center corner
+    };
+
+    // Texture();
+
     while (!glfwWindowShouldClose(window))
     {
 
@@ -188,6 +208,12 @@ int GLFW::Glfw::CreateWindow() {
         // draw our first triangle
         glUseProgram(shaderProgram);
 
+
+        float timeValue = glfwGetTime();
+        float greenValue = (sin(timeValue) / 2.0f) + 0.5f;
+        int vertexColorLocation = glGetUniformLocation(shaderProgram, "Vec_Color");
+        glUniform4f(vertexColorLocation, 0.0f, greenValue, 0.0f, 1.0f);
+
         // KeyBoard Input
         KeyboardInput(window);
 
@@ -197,17 +223,23 @@ int GLFW::Glfw::CreateWindow() {
         // Camera Position 
         Camera_Position();
 
+        // Getting the View Matrix of the Camera
+        getViewMatrix();
+
         // update the uniform color
-        float timeValue = glfwGetTime(); // Time in seconds
-        float greenValue = sin(timeValue) / 2.0f + 0.5f;
-        int vertexColorLocation = glGetUniformLocation(shaderProgram, "ourColor");
-        glUniform4f(vertexColorLocation, 0.0f, greenValue, 0.0f, 1.0f);
+
 
         glBindVertexArray(VAO); // seeing as we only have a single VAO there's no need to bind it every time, but we'll do so to keep things a bit more organized
         glDrawArrays(GL_TRIANGLES, 0, 3);
         // glBindVertexArray(0); // no need to unbind it every time 
         // glfw: swap buffers and poll IO events (keys pressed/released, mouse moved etc.)
         // -------------------------------------------------------------------------------
+
+
+        
+
+
+
         glfwSwapInterval(1);
         glfwSwapBuffers(window);
         glfwPollEvents();
@@ -235,6 +267,40 @@ void framebuffer_size_callback(GLFWwindow* window, int width, int height)
 }
 
 
+/*
+void GLFW::Glfw::Texture(void) {
+    unsigned int texture;
+    glGenTextures(1, &texture);
+    glBindTexture(GL_TEXTURE_2D, texture);
+    // set the texture wrapping/filtering options (on the currently bound texture object)
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+    // load and generate the texture
+    int width, height, nrChannels;
+    string file_Name = "container.jpg";
+    stbi_load(file_Name.c_str(), &width, &height, &nrChannels, 0);
+    
+    //unsigned char* data = stbi_load(file_Name.c_str(), &width, &height, &nrChannels, 0);
+    
+    if (data)
+    {
+        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, data);
+        glGenerateMipmap(GL_TEXTURE_2D);
+    }
+    else
+    {
+        LOG("Failed to load texture");
+    }
+    
+    //stbi_image_free(data);
+
+}
+*/
+
+
+
 void GLFW::Glfw::KeyboardInput(GLFWwindow* window) {
     
     if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS) {
@@ -260,9 +326,13 @@ void GLFW::Glfw::KeyboardInput(GLFWwindow* window) {
     }
 }
 
-void GLFW::Glfw::Camera_Position() {
 
-      
+void GLFW::Glfw::Camera_Position() {
+    vec3 Camera_Position = vec3(0.f, 0.f, 3.f);   
+    vec3 Camera_Target = vec3(0.f, 0.f, 0.f);
+    vec3 Camer_Placement = normalize(Camera_Position - Camera_Target);
+    //LOG( "Camera X Position - ");
+    
 }
 
 /*

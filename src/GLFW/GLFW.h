@@ -1,12 +1,9 @@
 #pragma once
 #include "../Headers.h";
-
-// bool isPlaying;
-// bool hasStopped;
-
+#include "Camera.h";
 
 namespace GLFW {
-	class Glfw {
+	class Glfw : public Camera {
 	private:
 		int width = 900;
 		int height = 900;
@@ -16,7 +13,6 @@ namespace GLFW {
 		GLFWwindow* window_02;
 	
 		
-
 	public:
 		Glfw();
 		int getWidth();
@@ -30,8 +26,11 @@ namespace GLFW {
 		/* Update Input */
 		virtual void KeyboardInput(GLFWwindow* window);
 
-		/* Camera Position */
+		/* Camera */
 		virtual void Camera_Position();
+
+		/* Textures */
+		//virtual void Texture();
 
 		/* Mouse Input  */
 		//virtual void mouseButtonCallback(GLFWwindow* window);

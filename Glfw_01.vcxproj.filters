@@ -48,6 +48,9 @@
     <ClCompile Include="imgui\imgui_widgets.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\GLFW\Camera.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="libraries\include\glad\glad.h">
@@ -95,14 +98,94 @@
     <ClInclude Include="imgui\imgui_impl_opengl3_loader.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Linkage\glew\include\GL\eglew.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Linkage\glew\include\GL\glew.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Linkage\glew\include\GL\glxew.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Linkage\glew\include\GL\wglew.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Linkage\glew\include\eglew.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Linkage\glew\include\glew.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Linkage\glew\include\glxew.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Linkage\glew\include\wglew.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GLFW\Camera.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GLFW\stb_image.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Library Include="libraries\lib\glfw3.lib" />
+    <Library Include="Linkage\glew\lib\Release\x64\glew32s.lib" />
+    <Library Include="Linkage\glew\lib\Release\x64\glew32.lib" />
+    <Library Include="Linkage\glew\lib\Release\Win32\glew32s.lib" />
+    <Library Include="Linkage\glew\lib\Release\Win32\glew32.lib" />
+    <Library Include="Linkage\glew\lib\glew32.lib" />
+    <Library Include="Linkage\glew\lib\glew32s.lib" />
   </ItemGroup>
   <ItemGroup>
     <None Include=".gitignore" />
     <None Include="LICENSE" />
     <None Include="README.md" />
     <None Include="imgui.ini" />
+    <None Include="Linkage\glew\bin\Release\Win32\glew32.dll" />
+    <None Include="Linkage\glew\bin\Release\Win32\glewinfo.exe" />
+    <None Include="Linkage\glew\bin\Release\Win32\visualinfo.exe" />
+    <None Include="Linkage\glew\bin\Release\x64\glew32.dll" />
+    <None Include="Linkage\glew\bin\Release\x64\glewinfo.exe" />
+    <None Include="Linkage\glew\bin\Release\x64\visualinfo.exe" />
+    <None Include="Linkage\glew\doc\advanced.html" />
+    <None Include="Linkage\glew\doc\basic.html" />
+    <None Include="Linkage\glew\doc\build.html" />
+    <None Include="Linkage\glew\doc\credits.html" />
+    <None Include="Linkage\glew\doc\glew.css" />
+    <None Include="Linkage\glew\doc\glew.html" />
+    <None Include="Linkage\glew\doc\glxew.html" />
+    <None Include="Linkage\glew\doc\index.html" />
+    <None Include="Linkage\glew\doc\install.html" />
+    <None Include="Linkage\glew\doc\log.html" />
+    <None Include="Linkage\glew\doc\wglew.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Linkage\glew\doc\github.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Linkage\glew\doc\glew.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Linkage\glew\doc\new.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Linkage\glew\doc\ogl_sm.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Linkage\glew\doc\travis.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="src\GLFW\container.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Linkage\glew\doc\glew.txt" />
+    <Text Include="Linkage\glew\doc\gpl.txt" />
+    <Text Include="Linkage\glew\doc\khronos.txt" />
+    <Text Include="Linkage\glew\doc\mesa.txt" />
+    <Text Include="Linkage\glew\LICENSE.txt" />
   </ItemGroup>
 </Project>
