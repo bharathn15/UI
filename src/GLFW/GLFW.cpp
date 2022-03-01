@@ -31,7 +31,7 @@ const char* vertexShaderSource = "#version 330 core\n"
 
 const char* fragmentShaderSource = "#version 330 core\n"
 "out vec4 FragColor;\n"
-"uniform vec4  Vec_Color;\n"
+"in vec4  Vec_Color;\n"
 "void main()\n"
 "{\n"
 "   FragColor = Vec_Color;\n"
@@ -185,16 +185,13 @@ int GLFW::Glfw::CreateWindow() {
     // render loop
     // -----------
 
-    
-
-
     float texCoords[] = {
     0.0f, 0.0f,  // lower-left corner  
     1.0f, 0.0f,  // lower-right corner
     0.5f, 1.0f   // top-center corner
     };
 
-    // Texture();
+    
 
     while (!glfwWindowShouldClose(window))
     {
@@ -227,6 +224,7 @@ int GLFW::Glfw::CreateWindow() {
         getViewMatrix();
 
         // update the uniform color
+        Texture();
 
 
         glBindVertexArray(VAO); // seeing as we only have a single VAO there's no need to bind it every time, but we'll do so to keep things a bit more organized
@@ -267,23 +265,25 @@ void framebuffer_size_callback(GLFWwindow* window, int width, int height)
 }
 
 
-/*
-void GLFW::Glfw::Texture(void) {
+
+void GLFW::Glfw::Texture() {
     unsigned int texture;
     glGenTextures(1, &texture);
     glBindTexture(GL_TEXTURE_2D, texture);
     // set the texture wrapping/filtering options (on the currently bound texture object)
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT); // S = X
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT); // T = Y
     // load and generate the texture
-    int width, height, nrChannels;
+    int width;
+    int height;
+    int nrChannels;
     string file_Name = "container.jpg";
-    stbi_load(file_Name.c_str(), &width, &height, &nrChannels, 0);
-    
-    //unsigned char* data = stbi_load(file_Name.c_str(), &width, &height, &nrChannels, 0);
-    
+   
+    unsigned char* data = stbi_load("Test.png", &width, &height, &nrChannels, 0);
+
     if (data)
     {
         glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, data);
@@ -293,11 +293,8 @@ void GLFW::Glfw::Texture(void) {
     {
         LOG("Failed to load texture");
     }
-    
-    //stbi_image_free(data);
-
 }
-*/
+
 
 
 
@@ -305,8 +302,6 @@ void GLFW::Glfw::KeyboardInput(GLFWwindow* window) {
     
     if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS) {
         LOG("W Key is Pressed.");
-        //float time = glfwGetTime();
-        //LOG(time);
     }
     
     if (glfwGetKey(window, GLFW_KEY_E) == GLFW_PRESS) {

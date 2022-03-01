@@ -30,7 +30,7 @@ namespace GLFW {
 		virtual void Camera_Position();
 
 		/* Textures */
-		//virtual void Texture();
+		virtual void Texture();
 
 		/* Mouse Input  */
 		//virtual void mouseButtonCallback(GLFWwindow* window);

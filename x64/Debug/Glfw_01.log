@@ -1,34 +1,15 @@
 ﻿  GLFW.cpp
 D:\Projects\2022\GLFW\Glfw_01\src\GLFW\GLFW.cpp(1,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
 D:\Projects\2022\GLFW\Glfw_01\src\GLFW\GLFW.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-D:\Projects\2022\GLFW\Glfw_01\src\Headers.h(16,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-D:\Projects\2022\GLFW\Glfw_01\src\Headers.h(17,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-D:\Projects\2022\GLFW\Glfw_01\src\Headers.h(18,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
 D:\Projects\2022\GLFW\Glfw_01\src\Headers.h(19,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+D:\Projects\2022\GLFW\Glfw_01\src\Headers.h(20,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+D:\Projects\2022\GLFW\Glfw_01\src\Headers.h(21,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+D:\Projects\2022\GLFW\Glfw_01\src\Headers.h(22,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
 D:\Projects\2022\GLFW\Glfw_01\src\GLFW\GLFW.h(3,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
 D:\Projects\2022\GLFW\Glfw_01\src\GLFW\Camera.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-D:\Projects\2022\GLFW\Glfw_01\src\Headers.h(16,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-D:\Projects\2022\GLFW\Glfw_01\src\Headers.h(17,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-D:\Projects\2022\GLFW\Glfw_01\src\Headers.h(18,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
 D:\Projects\2022\GLFW\Glfw_01\src\Headers.h(19,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-D:\Projects\2022\GLFW\Glfw_01\src\GLFW\GLFW.cpp(212,25): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-  Main.cpp
-D:\Projects\2022\GLFW\Glfw_01\src\Main.cpp(1,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-D:\Projects\2022\GLFW\Glfw_01\src\Headers.h(16,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-D:\Projects\2022\GLFW\Glfw_01\src\Headers.h(17,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-D:\Projects\2022\GLFW\Glfw_01\src\Headers.h(18,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-D:\Projects\2022\GLFW\Glfw_01\src\Headers.h(19,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-D:\Projects\2022\GLFW\Glfw_01\src\Main.cpp(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-D:\Projects\2022\GLFW\Glfw_01\src\GLFW\GLFW.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-D:\Projects\2022\GLFW\Glfw_01\src\Headers.h(16,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-D:\Projects\2022\GLFW\Glfw_01\src\Headers.h(17,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-D:\Projects\2022\GLFW\Glfw_01\src\Headers.h(18,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-D:\Projects\2022\GLFW\Glfw_01\src\Headers.h(19,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-D:\Projects\2022\GLFW\Glfw_01\src\GLFW\GLFW.h(3,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-D:\Projects\2022\GLFW\Glfw_01\src\GLFW\Camera.h(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-D:\Projects\2022\GLFW\Glfw_01\src\Headers.h(16,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-D:\Projects\2022\GLFW\Glfw_01\src\Headers.h(17,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-D:\Projects\2022\GLFW\Glfw_01\src\Headers.h(18,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-D:\Projects\2022\GLFW\Glfw_01\src\Headers.h(19,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-  Generating Code...
+D:\Projects\2022\GLFW\Glfw_01\src\Headers.h(20,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+D:\Projects\2022\GLFW\Glfw_01\src\Headers.h(21,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+D:\Projects\2022\GLFW\Glfw_01\src\Headers.h(22,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+D:\Projects\2022\GLFW\Glfw_01\src\GLFW\GLFW.cpp(209,25): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
   Glfw_01.vcxproj -> D:\Projects\2022\GLFW\Glfw_01\x64\Debug\Glfw_01.exe

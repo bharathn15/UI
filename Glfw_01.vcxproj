@@ -159,6 +159,7 @@
     <ClCompile Include="imgui\imgui_widgets.cpp" />
     <ClCompile Include="src\GLFW\Camera.cpp" />
     <ClCompile Include="src\GLFW\GLFW.cpp" />
+    <ClCompile Include="src\GLFW\stb_image.cpp" />
     <ClCompile Include="src\Main.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -227,6 +228,7 @@
     <Image Include="Linkage\glew\doc\ogl_sm.jpg" />
     <Image Include="Linkage\glew\doc\travis.png" />
     <Image Include="src\GLFW\container.jpg" />
+    <Image Include="src\GLFW\Test.png" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="Linkage\glew\doc\glew.txt" />

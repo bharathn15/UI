@@ -51,6 +51,9 @@
     <ClCompile Include="src\GLFW\Camera.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\GLFW\stb_image.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="libraries\include\glad\glad.h">
@@ -178,6 +181,9 @@
       <Filter>Resource Files</Filter>
     </Image>
     <Image Include="src\GLFW\container.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="src\GLFW\Test.png">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>
