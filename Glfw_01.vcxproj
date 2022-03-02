@@ -228,7 +228,21 @@
     <Image Include="Linkage\glew\doc\ogl_sm.jpg" />
     <Image Include="Linkage\glew\doc\travis.png" />
     <Image Include="src\GLFW\container.jpg" />
-    <Image Include="src\GLFW\Test.png" />
+    <Image Include="src\GLFW\Test.png">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</DeploymentContent>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</DeploymentContent>
+    </Image>
+    <Image Include="src\GLFW\wall.png">
+      <DeploymentContent>true</DeploymentContent>
+    </Image>
+    <Image Include="src\Images\container.jpg">
+      <DeploymentContent>true</DeploymentContent>
+    </Image>
+    <Image Include="src\Images\Test.png">
+      <DeploymentContent>true</DeploymentContent>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <Text Include="Linkage\glew\doc\glew.txt" />

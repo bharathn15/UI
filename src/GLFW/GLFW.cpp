@@ -232,12 +232,6 @@ int GLFW::Glfw::CreateWindow() {
         // glBindVertexArray(0); // no need to unbind it every time 
         // glfw: swap buffers and poll IO events (keys pressed/released, mouse moved etc.)
         // -------------------------------------------------------------------------------
-
-
-        
-
-
-
         glfwSwapInterval(1);
         glfwSwapBuffers(window);
         glfwPollEvents();
@@ -264,35 +258,44 @@ void framebuffer_size_callback(GLFWwindow* window, int width, int height)
     glViewport(0, 0, width, height);
 }
 
-
-
 void GLFW::Glfw::Texture() {
-    unsigned int texture;
-    glGenTextures(1, &texture);
-    glBindTexture(GL_TEXTURE_2D, texture);
-    // set the texture wrapping/filtering options (on the currently bound texture object)
 
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT); // S = X
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT); // T = Y
     // load and generate the texture
     int width;
     int height;
     int nrChannels;
-    string file_Name = "container.jpg";
+    string file_Name = "wall.png";
    
-    unsigned char* data = stbi_load("Test.png", &width, &height, &nrChannels, 0);
-
+    unsigned char* data = stbi_load(file_Name.c_str(), &width, &height, &nrChannels, 0);
+           
+    // LOG(data[0]);
+    // data is NULL or unable to read the data value. 
+    // 0x000000
+       
     if (data)
     {
+        
         glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, data);
         glGenerateMipmap(GL_TEXTURE_2D);
+        // LOG("Data is Null.");
+        
     }
     else
     {
         LOG("Failed to load texture");
     }
+
+    unsigned int texture;
+    glGenTextures(1, &texture);
+    glBindTexture(GL_TEXTURE_2D, texture);
+
+    // set the texture wrapping/filtering options (on the currently bound texture object)
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT); // S = X
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT); // T = Y
+
+    stbi_image_free(data);
 }
 
 

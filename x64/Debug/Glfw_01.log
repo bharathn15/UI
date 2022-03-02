@@ -11,5 +11,6 @@ D:\Projects\2022\GLFW\Glfw_01\src\Headers.h(19,10): warning C4067: unexpected to
 D:\Projects\2022\GLFW\Glfw_01\src\Headers.h(20,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
 D:\Projects\2022\GLFW\Glfw_01\src\Headers.h(21,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
 D:\Projects\2022\GLFW\Glfw_01\src\Headers.h(22,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+D:\Projects\2022\GLFW\Glfw_01\src\GLFW\GLFW.h(4,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
 D:\Projects\2022\GLFW\Glfw_01\src\GLFW\GLFW.cpp(209,25): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
   Glfw_01.vcxproj -> D:\Projects\2022\GLFW\Glfw_01\x64\Debug\Glfw_01.exe

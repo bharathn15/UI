@@ -186,6 +186,15 @@
     <Image Include="src\GLFW\Test.png">
       <Filter>Resource Files</Filter>
     </Image>
+    <Image Include="src\Images\Test.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="src\Images\container.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="src\GLFW\wall.png">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <Text Include="Linkage\glew\doc\glew.txt" />

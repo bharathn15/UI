@@ -1,6 +1,8 @@
 #pragma once
 #include "../Headers.h";
 #include "Camera.h";
+#include "../src/GLFW/stb_image.h";
+
 
 namespace GLFW {
 	class Glfw : public Camera {

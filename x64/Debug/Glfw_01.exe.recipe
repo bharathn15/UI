@@ -5,7 +5,20 @@
       <FullPath>D:\Projects\2022\GLFW\Glfw_01\x64\Debug\Glfw_01.exe</FullPath>
     </ProjectOutput>
   </ProjectOutputs>
-  <ContentFiles />
+  <ContentFiles>
+    <ContentFile>
+      <FullPath>D:\Projects\2022\GLFW\Glfw_01\src\GLFW\Test.png</FullPath>
+    </ContentFile>
+    <ContentFile>
+      <FullPath>D:\Projects\2022\GLFW\Glfw_01\src\GLFW\wall.png</FullPath>
+    </ContentFile>
+    <ContentFile>
+      <FullPath>D:\Projects\2022\GLFW\Glfw_01\src\Images\container.jpg</FullPath>
+    </ContentFile>
+    <ContentFile>
+      <FullPath>D:\Projects\2022\GLFW\Glfw_01\src\Images\Test.png</FullPath>
+    </ContentFile>
+  </ContentFiles>
   <SatelliteDlls />
   <NonRecipeFileRefs />
 </Project>
