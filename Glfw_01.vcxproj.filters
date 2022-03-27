@@ -54,6 +54,12 @@
     <ClCompile Include="src\GLFW\stb_image.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\GLFW\Shader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GLFW\Obj_Loader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="libraries\include\glad\glad.h">
@@ -131,6 +137,18 @@
     <ClInclude Include="src\GLFW\stb_image.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\GLFW\Shader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GLFW\Obj_Loader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GLFW\Vertex.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GLFW\shader_s.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Library Include="libraries\lib\glfw3.lib" />
@@ -163,6 +181,11 @@
     <None Include="Linkage\glew\doc\install.html" />
     <None Include="Linkage\glew\doc\log.html" />
     <None Include="Linkage\glew\doc\wglew.html" />
+    <None Include="src\GLFW\4.1.texture.fs" />
+    <None Include="src\GLFW\4.1.texture.vs" />
+    <None Include="src\GLFW\Fragment_Shader.shader" />
+    <None Include="src\GLFW\Vertex_Shader.shader" />
+    <None Include="src\GLFW\Vertex_Shader.shader.bak" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Linkage\glew\doc\github.png">

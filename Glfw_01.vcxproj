@@ -97,7 +97,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>glew32.lib;glfw3.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>glew32.lib;glfw3.lib;opengl32.lib;assimp\assimp-vc143-mtd.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(SolutionDir)Linkage\glew\lib\Release\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
@@ -128,7 +128,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>glew32.lib;glfw3.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>glew32.lib;glfw3.lib;opengl32.lib;assimp\assimp-vc143-mtd.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(SolutionDir)Linkage\glew\lib\Release\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
@@ -159,6 +159,8 @@
     <ClCompile Include="imgui\imgui_widgets.cpp" />
     <ClCompile Include="src\GLFW\Camera.cpp" />
     <ClCompile Include="src\GLFW\GLFW.cpp" />
+    <ClCompile Include="src\GLFW\Obj_Loader.cpp" />
+    <ClCompile Include="src\GLFW\Shader.cpp" />
     <ClCompile Include="src\GLFW\stb_image.cpp" />
     <ClCompile Include="src\Main.cpp" />
   </ItemGroup>
@@ -186,7 +188,11 @@
     <ClInclude Include="Linkage\glew\include\wglew.h" />
     <ClInclude Include="src\GLFW\Camera.h" />
     <ClInclude Include="src\GLFW\GLFW.h" />
+    <ClInclude Include="src\GLFW\Obj_Loader.h" />
+    <ClInclude Include="src\GLFW\Shader.h" />
+    <ClInclude Include="src\GLFW\shader_s.h" />
     <ClInclude Include="src\GLFW\stb_image.h" />
+    <ClInclude Include="src\GLFW\Vertex.h" />
     <ClInclude Include="src\Headers.h" />
   </ItemGroup>
   <ItemGroup>
@@ -220,6 +226,11 @@
     <None Include="Linkage\glew\doc\log.html" />
     <None Include="Linkage\glew\doc\wglew.html" />
     <None Include="README.md" />
+    <None Include="src\GLFW\4.1.texture.fs" />
+    <None Include="src\GLFW\4.1.texture.vs" />
+    <None Include="src\GLFW\Fragment_Shader.shader" />
+    <None Include="src\GLFW\Vertex_Shader.shader" />
+    <None Include="src\GLFW\Vertex_Shader.shader.bak" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="Linkage\glew\doc\github.png" />

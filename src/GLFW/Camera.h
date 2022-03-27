@@ -3,33 +3,23 @@
 
 
 class Camera {
-private :
-
-	vec4 ViewMatrix;
-
-	vec3 WorldUp;
-	vec3 position = vec3(0.f, 0.f, 3.f);
-	vec3 target = vec3(0.f, 0.f, 0.f);
-	vec3 up = vec3(0.f, 1.f, 0.f);
-	vec3 front;
-	vec3 right;
-	
-
-	GLfloat movementSpeed;
-	GLfloat sensitivity;
-
-	GLfloat pitch;
-	GLfloat raw;
-	GLfloat yawn;
-
-	void UpdateCameraVectors();
 
 public:
+	vec3 Position;
+	vec3 Orientation = vec3(0.f, 0.f, -1.f);
+	vec3 Up = vec3(0.f, 1.f, 0.f);
+
 	Camera();
 
-	Camera(vec3 position, vec3 direction, vec3 WorldUp);
-	
-	void getViewMatrix(); // vec3 position, vec3 target, vec3 up
+	Camera(int width, int height, vec3 position);
+
+	void getViewMatrix(int shaderProgram, float rotation, float prevTime); // vec3 position, vec3 target, vec3 up
+
+	void Matrix(float FOVdeg, int shaderProgram, float nearPlane, float farPlane, const char* uniform);
+
+	void Inputs(GLFWwindow* window);
+
+	void Camera_Pers_View();
 
 	~Camera();
 };

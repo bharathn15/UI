@@ -2,7 +2,7 @@
 #include "../Headers.h";
 #include "Camera.h";
 #include "../src/GLFW/stb_image.h";
-
+#include "shader_s.h";
 
 namespace GLFW {
 	class Glfw : public Camera {
@@ -34,6 +34,11 @@ namespace GLFW {
 		/* Textures */
 		virtual void Texture();
 
+		virtual void Move_Triangle(GLFWwindow* window);
+
+		/* Loading 3D modeling */
+		virtual void Load_Model();
+
 		/* Mouse Input  */
 		//virtual void mouseButtonCallback(GLFWwindow* window);
 
@@ -45,6 +50,9 @@ namespace GLFW {
 
 		virtual int CreateWindow();
 		void DeleteWindow();
+
+		static void Get_Vertex_Shader(const string& filePath);
+
 		~Glfw();
 
 	};
